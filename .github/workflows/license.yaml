@@ -10,4 +10,4 @@ jobs:
     env:
       GH_TOKEN: "${{ github.token }}"
     steps:
-      - run: gh repo ls --no-archived --limit 300 --json name --jq ".[].name"
+      - run: gh repo ls --no-archived --limit 300 --json name --jq ".[].name" | xargs -L 1 echo
