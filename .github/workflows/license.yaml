@@ -6,7 +6,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    environment: ci
     permissions: read-all
+    env:
+      GH_TOKEN: "${{ github.token }}"
     steps:
       - run: gh repo ls --no-archived --limit 300 --json name --jq ".[].name"
